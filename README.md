@@ -6,6 +6,7 @@ Feel free to [skip the story](#goals) if you wish.
 Professor Oak was sitting at his computer when he was surprised to receive a call from Professor Birch. 
 
 ![](Images/Birch.jpeg)
+
 *Professor Birch was always late to class*
 
 "Birchie! How's the Hoenn region?"
@@ -18,6 +19,7 @@ They chatted pleasantly for a few minutes. Then Professor Oak said, "What can I 
 
 ![](Images/Rocket.jpeg)
 ![](Images/rocket-mortgage.png)
+
 *Are they the same company? You decide for yourself.*
 
 Professor Oak was confused. "I'm happy for you, Birchie, but why...?"
@@ -57,11 +59,20 @@ In your `pokemon` database, you will need to have a collection `pokemon_data`, w
 {
     "_id": (some alphanumeric value),
     "name": "Bulbasaur",
-    "
+    "types": ["grass", "poison"],
+    "hp": 45,
+    "attack": 49,
+    "defense": 59,
+    "speed": 45,
+    "sp_attack": 65,
+    "sp_defense": 65
+    "abilities": [
+        "Chlorophyll", "Overgrow"
+    ]
 }
 ```
 
-In addition, there should be 
+Notice that this is just the combat statistics of the Pokemon; Team Rocket doesn't care about any data except that which can be used in battles.
 
 ## Stories/Rubric
 
