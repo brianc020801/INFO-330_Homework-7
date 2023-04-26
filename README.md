@@ -6,6 +6,7 @@ Feel free to [skip the story](#goals) if you wish.
 Professor Oak was sitting at his computer when he was surprised to receive a call from Professor Birch. 
 
 ![](Images/Birch.jpeg)
+
 *Professor Birch was always late to class*
 
 "Birchie! How's the Hoenn region?"
@@ -18,6 +19,7 @@ They chatted pleasantly for a few minutes. Then Professor Oak said, "What can I 
 
 ![](Images/Rocket.jpeg)
 ![](Images/rocket-mortgage.png)
+
 *Are they the same company? You decide for yourself.*
 
 Professor Oak was confused. "I'm happy for you, Birchie, but why...?"
