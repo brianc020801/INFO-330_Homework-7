@@ -1,84 +1,69 @@
-# INFO330: Exploring Document Databases
-A homework assignment for my INFO 330 course
+# Exploring DocDBs
+
+Feel free to [skip the story](#goals) if you wish.
 
 ## Background
+Professor Oak was sitting at his computer when he was surprised to receive a call from Professor Birch. 
 
-Professor Oak had another problem.
+![](Images/Birch.jpeg)
+*Professor Birch was always late to class*
 
-(Prof Oak pic)
+"Birchie! How's the Hoenn region?"
 
-He called his new favorite Pokemon trainer and part-time IT support, Misty.
+"Quite pleasant, Samuel. How's Johto?"
 
-(Misty pic)
+They chatted pleasantly for a few minutes. Then Professor Oak said, "What can I do for you? Anything going on?"
 
-"Misty! I'm so glad I found you. Are you busy right now?"
+"Well, as it turns out, I'm joining a startup--a company called Rocket Pokemon, they're sort of an outgrowth of the same folks that do mortgages and loans--and I could use your help."
 
-Misty looked at the pool next to her, filled with hungry water Pokemon, and knew that they were going to have to go hungry for a bit longer. "No, Professor, what can I do for you?"
+![](Images/Rocket.jpeg)
+![](Images/rocket-mortgage.png)
+*Are they the same company? You decide for yourself.*
 
-"After you did that great work normalizing the database, I started hearing some stories from the other Professors about a different way of storing the Pokemon data that might make it easier to do my research."
+Professor Oak was confused. "I'm happy for you, Birchie, but why...?"
 
-Misty frowned. "Did something happen to the existing database?" She glared at one of the Squirtles who "accidentally" blasted her iPad with a Water Gun attack the other day.
+"Why call you? Because! I want your help! We want to start running some experiments where we put thousands of Pokemon into battles--"
 
-(Squirtle pic--Squirtle does not look embarrassed)
+![](Images/multi-pokemon-battle.jpeg)
 
-"No, no, it's great, it's just that the other Professors and I were talking and comparing data, and we found it would be easier to do so if we had a JSON version of each Pokemon that we could pass around to each other."
+Professor Oak gasped. "Birchie! You're talking Pokemon WAR?!?"
 
-"Well, Professor, I guess, but I--"
+"No, no! No. We want to *simulate* those battles. We think it'll be useful for research."
 
-"That's great Misty! Thank you!"
+"Oh!" Professor Oak was relieved. "Well, how can I help?"
 
-Misty sighed.
+Professor Birch smiled. "I was hoping you'd ask! You see, we need your Pokemon database to be in our database."
 
-## Homework
+Professor Oak started to get a bad feeling in his stomach. "Well, I'm happy to share my SQL database with you..."
 
-In this directory is the CSV file and a version of the Pokemon normalized database. (We can assume they hold the same data--if you find any discrepancies, please let me know!) Your job is to import this data into a document database, such as MongoDB or Couchbase. (MongoDB is more popular, Couchbase has some features Mongo lacks; you are free to use either one.) You can either use features of the tool to do the import, or write Java or Python code to do it.
+"No, I'm sorry Samuel, but we find that a SQL database can't handle the millions of simulations we're going to run. We were hoping you could port it into a document database...? If you could, maybe, put the data into MongoDB...?"
 
-Regardless of which one you use, once the database is complete, store the data files for the database in this repository, and/or the code you used to import from the CSV or the SQLite database. Additionally, you must "export" the data from the new database in a JSON format, and store that JSON file in this repository as well.
+Suddenly Professor Oak wanted to see Team Rocket Corp in a familiar pose.
 
-## Rubric
+![](Images/blasting_off_again.jpeg)
 
-* You have a JSON file that holds Pokemon; please call it `pokemon.json`. (1pt)
-* This JSON file holds 801 Pokemon and their data, each in their own JSON entry. (2pts)
-* Each JSON entry has all the data from the corresponding row in the CSV, but arranged hierarchically, per Pokemon. (1pt)
-* Show a query against the database you used (either Mongo or Couchbase) that returns a single Pokemon's data (1 pt)
+## Goals
+Using the CSV file provided, import the data into a MongoDB database and make sure it is usable from a Python program (which will simulate some pokemon battles). You may need to use the `mongo` client to manipulate the imported documents to match the desired format.
 
-For the latter query, either show running it at the command-line, or take a screen shot of using a GUI tool to run the query (whichever is easier for you to use with the database in question--MongoDB has a command-line tool that ships with it, for example, but there are some GUI tools out that know how to query a MongoDB instance).
+### Details
 
-## Extra credit
+Either install MongoDB on your personal machine, or make use of one of the free cloud MongoDB providers, and create a database called `pokemon`. (If you use a cloud provider, you will need to provide that URL to the TAs and ensure they have access to the database to grade your database--if they cannot get access, it is a 0.)
 
-* include a new attribute for each Pokemon, "image", that contains an HTTP URL to a pic of the Pokemon. Populate this for "Bulbasaur", "Ivysaur", and "Venusaur". (2 pts)
-* use the facilities of the document database you choose (Mongo or Couchbase) to answer the following questions (1 pt each):
-    * How many Pokemon have just one type?
-    * How many Pokemon are "Poison" type as either their first or second type?
-    * How many Pokemon have an attack that no other Pokemon has?
+### Collections
 
-
-## Tips
-
-JSON is a hierarchical format, where we start with a common root (either an object or an array) and has name-value pair children beneath it. JSON also does not look to normalize the data--instead, the heart of its model is to take a more "document" approach, where everything about the entity is captured in one place, duplicated if necessary. (It has much in common with CSV that way.) So a reasonable "first pass" at a JSON-based schema for each entry could look like:
+In your `pokemon` database, you will need to have a collection `pokemon_data`, which will contain instances of JSON/BSON documents that look roughly like the following:
 
 ```
 {
-    'name': 'Bulbasaur',
-    'types': ['grass', 'poison'],
-    'generation': 1
+    "_id": (some alphanumeric value),
+    "name": "Bulbasaur",
+    "
 }
 ```
 
-You are free to use whatever schema makes sense to you, so if you found it easier to arrange them by generation, you could do something like the following:
+In addition, there should be 
 
-```
-{
-    'generations': [
-        [
-            {
-                'name': 'Bulbasaur',
-                'types': ['grass', 'poison'],
-                'generation': 1
-            }
-        ]
-    ]
-}
-```
+## Stories/Rubric
 
-... where `generations` is an array, and each element in that array is the array of Pokemon that came out with that generation. It's entirely up to you.
+
+
