@@ -1,4 +1,5 @@
-# Exploring DocDBs
+# INFO330: Exploring Document Databases
+A homework assignment for my INFO 330 course, building around the Pokemon CSV file from [INFO330-CreatingRelations2]().
 
 Feel free to [skip the story](#goals) if you wish.
 
