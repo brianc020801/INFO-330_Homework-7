@@ -22,12 +22,12 @@ def insertInto(): # Function to get neccessary data
             "name": p[0],
             "pokedex_number": int(p[1]),
             "types": types,
-            "hp": p[4],
-            "attack": p[5],
-            "defense": p[6],
-            "speed": p[7],
-            "sp_attack": p[8],
-            "sp_defense": p[9],
+            "hp": int(p[4]),
+            "attack": int(p[5]),
+            "defense": int(p[6]),
+            "speed": int(p[7]),
+            "sp_attack": int(p[8]),
+            "sp_defense": int(p[9]),
             "abilities": p[10]
         }
         pokemonColl.insert_one(pokemon)
